@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body %}
+<ul>
+{% for user in users %}
+    <li>{{user[0]}}</li>
+    {% for topic in topics %}
+        {% if user[0] == topic[1] %}
+            <li><a href={{url_for("shownotes",topic=topic[0])}}>&nbsp;&nbsp;&nbsp;&nbsp;{{topic[0]}}</a></li>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+</ul>
+{% endblock %}
